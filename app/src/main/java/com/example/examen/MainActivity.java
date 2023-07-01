@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     String VerficacionNombre = "Ricardo123";
     String VerficacionContrasena = "Ricardo123";
-    int intentos = 3;
+    int intentos = 4;
 
 
     @Override
@@ -46,21 +46,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(logeado);
                 }else {
 
-                    if(intentos >= 3) {
+                    for (int i = 0; intentos >= i; i++) {
                         intentos = intentos - 1;
                         String mensaje = "Te quedan solo: " + (intentos);
                         incorrecto.setText(mensaje + "");
-                        if(intentos < 1){
-                            String ultimo = "ya no te quedan mas intentos";
-                            incorrecto.setText(ultimo + "");
-                            btn1.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent denegado = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(denegado);
-                                }
-                            });
-                        }
 
                     }
                 }
@@ -68,7 +57,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
+    public void restriccion(View view){
+        if(intentos < 1){
+            String ultimo = "ya no te quedan mas intentos";
+            incorrecto.setText(ultimo + "");
+            btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent denegado = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(denegado);
+                }
+            });
+        }
+    }
 
 }
