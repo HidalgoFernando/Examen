@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     String VerficacionNombre = "Ricardo123";
     String VerficacionContrasena = "Ricardo123";
-    int intentos = 4;
+    int intentos = 3;
 
 
     @Override
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 }else {
 
                     for (int i = 0; intentos >= i; i++) {
-                        intentos = intentos - 1;
+                        intentos = intentos - i;
                         String mensaje = "Te quedan solo: " + (intentos);
                         incorrecto.setText(mensaje + "");
 
